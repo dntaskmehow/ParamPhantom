@@ -1,7 +1,5 @@
 <div align="center">
-  <img src="docs/assets/header.svg" alt="ParamPhantom banner" width="1000" />
-</div>
-
+    <h1>ParamPhantom</h1>
 <p align="center">
   <img src="https://img.shields.io/badge/Build-Passing-success?logo=githubactions&logoColor=white" alt="Build passing" />
   <img src="https://img.shields.io/badge/Tests-Passing-2ea44f?logo=pytest&logoColor=white" alt="Tests passing" />
@@ -10,7 +8,6 @@
 </p>
 
 <div align="center">
-  <h1>ParamPhantom</h1>
   <p><strong>Client-side parameter discovery for mass-assignment and privilege-escalation testing.</strong></p>
   <p>ParamPhantom bridges static analysis of frontend JavaScript with active API differential fuzzing to expose hidden parameter abuse paths and authorization gaps.</p>
 </div>
