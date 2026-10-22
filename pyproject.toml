@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "paramphantom"
+version = "1.0.0"
+description = "AST-driven JavaScript taint analyzer and differential mass-assignment parameter discovery engine."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Professor Bug & Blackbox R&D" }]
+dependencies = ["requests>=2.31.0", "pydantic>=2.0.0", "rich>=13.0.0", "jsbeautifier>=1.14.0"]
+
+[project.scripts]
+paramphantom = "paramphantom.cli:main"
