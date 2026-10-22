@@ -5,7 +5,10 @@
   <img src="https://img.shields.io/badge/Tests-Passing-2ea44f?logo=pytest&logoColor=white" alt="Tests passing" />
   <img src="https://img.shields.io/badge/Stack-Python%20%7C%20JS%20Analysis%20%7C%20HTTP%20Fuzzing-0e7490?logo=python&logoColor=white" alt="Stack: Python, JS analysis, HTTP fuzzing" />
   <img src="https://img.shields.io/badge/Mode-CLI%20Security%20Research-111827?logo=terminal&logoColor=white" alt="CLI security research" />
+    
 </p>
+
+</div>
 
 <div align="center">
   <p><strong>Client-side parameter discovery for mass-assignment and privilege-escalation testing.</strong></p>
