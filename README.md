@@ -1,30 +1,29 @@
 <div align="center">
-  <img src="docs/assets/header.svg" alt="ParamPhantom banner" width="100%" height="50%" />
+  <img src="docs/assets/header.svg" alt="ParamPhantom banner" width="1000" />
 </div>
-<p>
-<div align="center">
+
+<p align="center">
   <img src="https://img.shields.io/badge/Build-Passing-success?logo=githubactions&logoColor=white" alt="Build passing" />
   <img src="https://img.shields.io/badge/Tests-Passing-2ea44f?logo=pytest&logoColor=white" alt="Tests passing" />
   <img src="https://img.shields.io/badge/Stack-Python%20%7C%20JS%20Analysis%20%7C%20HTTP%20Fuzzing-0e7490?logo=python&logoColor=white" alt="Stack: Python, JS analysis, HTTP fuzzing" />
   <img src="https://img.shields.io/badge/Mode-CLI%20Security%20Research-111827?logo=terminal&logoColor=white" alt="CLI security research" />
-</div>
-<p>
+</p>
+
 <div align="center">
- <p>
-    <strong>Client-side parameter discovery for mass-assignment and privilege-escalation testing.</strong>
-  </p>
-  <p>
-    ParamPhantom bridges static analysis of frontend JavaScript with active API differential fuzzing to expose hidden parameter abuse paths and authorization gaps.
-  </p>
+  <h1>ParamPhantom</h1>
+  <p><strong>Client-side parameter discovery for mass-assignment and privilege-escalation testing.</strong></p>
+  <p>ParamPhantom bridges static analysis of frontend JavaScript with active API differential fuzzing to expose hidden parameter abuse paths and authorization gaps.</p>
 </div>
 
-ParamPhantom bridges client-side static analysis with active API differential fuzzing. By harvesting object keys and state variables directly from frontend JavaScript bundles, it automates the discovery of hidden mass-assignment vulnerabilities and privilege escalation pathways.
+---
 
 ## Why it exists
 
-Many web applications expose sensitive actions through parameter-heavy APIs without exposing those parameters in a single obvious contract. The challenge is not only identifying the route — it is finding which fields, state variables, or nested objects can be mutated in ways the server accepts but the business logic never intended.
+Many web applications expose sensitive actions through parameter-heavy APIs without exposing those parameters in a single obvious contract. The challenge is not only identifying the route — it is mapping the hidden field names, object state values, and authorization-sensitive inputs that are only visible in client-side logic.
 
-ParamPhantom addresses that problem by starting from the frontend. It extracts likely state and parameter names from JavaScript bundles and then turns those names into active API probes that test whether the server accepts unexpected or over-privileged input.
+ParamPhantom addresses that problem by starting from the frontend. It extracts likely state and parameter names from JavaScript bundles and then turns those names into active API probes that test how the server behaves under different payload combinations.
+
+This makes it useful when a developer or researcher wants to move from static observation to actionable evidence without manually enumerating every hidden field or payload variant.
 
 ## At a glance
 
@@ -47,17 +46,17 @@ ParamPhantom addresses that problem by starting from the frontend. It extracts l
 
 ```text
 Frontend JS bundle
-   ↓
+    ↓
 Static key extraction
-   ↓
+    ↓
 Parameter hypothesis generation
-   ↓
+    ↓
 Differential API probing
-   ↓
+    ↓
 Response comparison and privilege / mass-assignment triage
 ```
 
-The workflow starts with the client-side source of truth. By collecting property names and state objects from frontend code, ParamPhantom builds a high-value parameter set for active API testing. Those candidate fields are then sent through behavioral probes to reveal whether the backend accepts unexpected state changes or privilege escalations.
+The workflow starts with the client-side source of truth. By collecting property names and state objects from frontend code, ParamPhantom builds a high-value parameter set for active API testing. It then sends targeted requests with varying payload values to compare baseline and injected responses. Where the server shows a meaningful shift in status, length, or behavior, the result is surfaced as a likely abuse or escalation path worthy of deeper review.
 
 ## Typical usage
 
@@ -91,15 +90,17 @@ The practical flow is:
 
 ## Security and responsible use
 
-ParamPhantom is intended for authorized security testing, controlled bug bounty workflows, and lawful research on systems you own or have explicit permission to assess. It should be used for evidence-based validation, not indiscriminate exploitation.
+ParamPhantom is intended for authorized security testing, controlled bug bounty workflows, and lawful research on systems you own or have explicit permission to assess. It should be used for evidence-based security review and internal validation in environments where permission to test has been explicitly granted.
+
+Use it to support responsible disclosure, secure architecture review, and targeted authorization testing — not as a substitute for formal security control review or unsanctioned probing.
 
 ## Contributing
 
-Contributions are welcome when they improve the parameter discovery workflow, API differential logic, or testing precision. Keep changes focused and validate them with concrete examples tied to the intended security research workflow.
+Contributions are welcome when they improve the parameter discovery workflow, API differential logic, or testing precision. Keep changes focused and validate them with concrete examples tied to the actual security testing workflow and the project’s intended scope.
 
 ## Project focus
 
-ParamPhantom is deliberately specialized. It is not a broad application scanner or generic fuzzing framework. Its value lies in connecting client-side observations to active server-side testing in order to surface parameter abuse and privilege escalation patterns faster.
+ParamPhantom is deliberately specialized. It is not a broad application scanner or generic fuzzing framework. Its value lies in connecting client-side observations to active server-side testing in a focused, operationally useful way.
 
 ---
 
